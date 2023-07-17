@@ -1,0 +1,219 @@
+<div class="parent">
+
+<div class="user__form">
+  
+  <form
+    class="form_style"
+    nz-form
+    [formGroup]="validateForm"
+    (ngSubmit)="submitForm()"
+  >
+
+    <!-- Username-->
+
+    <nz-form-item class="items-align">
+      <nz-form-label
+        [nzSm]="6"
+        [nzXs]="24"
+        nzRequired
+        nzFor="name"
+      ></nz-form-label>
+      <nz-form-control
+        [nzSm]="14"
+        [nzXs]="24"
+        nzErrorTip="{{ getUserErrorMsg('username') }}"
+      >
+        <input
+          class="enlarged-input"
+          nz-input
+          placeholder="Enter the username"
+          formControlName="username"
+          id="name"
+        />
+      </nz-form-control>
+    </nz-form-item>
+
+ 
+      <!-- Password-->
+    <nz-form-item class="items-align">
+      <nz-form-label
+        [nzSm]="6"
+        [nzXs]="24"
+        nzFor="password"
+        nzRequired
+      ></nz-form-label>
+      <nz-form-control
+        [nzSm]="14"
+        [nzXs]="24"
+        nzErrorTip="Please input your password!"
+      >
+        <input
+          nz-input
+          type="password"
+          id="password"
+          formControlName="password"
+          placeholder="Enter the Password"
+          (ngModelChange)="updateConfirmValidator()"
+        />
+      </nz-form-control>
+    </nz-form-item>
+    <nz-form-item class="items-align">
+      <nz-form-label
+        [nzSm]="6"
+        [nzXs]="24"
+        nzFor="checkPassword"
+        nzRequired
+      ></nz-form-label>
+      <nz-form-control [nzSm]="14" [nzXs]="24" [nzErrorTip]="errorTpl">
+        <input
+          nz-input
+          type="password"
+          placeholder="Confirm Password"
+          formControlName="checkPassword"
+          id="checkPassword"
+        />
+        <ng-template #errorTpl let-control>
+          <ng-container *ngIf="control.hasError('required')"
+            >Please confirm your password!</ng-container
+          >
+          <ng-container *ngIf="control.hasError('confirm')">
+            password does not match
+          </ng-container>
+        </ng-template>
+      </nz-form-control>
+    </nz-form-item>
+
+    <!-- Phonenumber-->
+
+    <nz-form-item class="items-align">
+      <nz-form-label [nzSm]="6" [nzXs]="24" nzFor="phoneNumber" nzRequired>
+      </nz-form-label>
+      <nz-form-control
+        [nzSm]="14"
+        [nzXs]="24"
+        [nzValidateStatus]="validateForm.controls['phoneNumber']"
+        nzErrorTip="Please input your phone number!"
+      >
+        <nz-input-group [nzAddOnBefore]="addOnBeforeTemplate">
+          <ng-template #addOnBeforeTemplate>
+            <nz-select formControlName="phoneNumberPrefix" class="phone-select">
+              <nz-option nzLabel="+91" nzValue="+91"></nz-option>
+              <nz-option nzLabel="+87" nzValue="+87"></nz-option>
+              <nz-option nzLabel="+98" nzValue="+98"></nz-option>
+              <nz-option nzLabel="+07" nzValue="+07"></nz-option>
+            </nz-select>
+          </ng-template>
+          <input
+            class="phone-field"
+            formControlName="phoneNumber"
+            placeholder="Enter the Number"
+            id="'phoneNumber'"
+            nz-input
+          />
+        </nz-input-group>
+      </nz-form-control>
+    </nz-form-item>
+
+
+    <!-- Roles-->
+
+    <nz-form-item>
+      <nz-input-group nzCompact>
+        <nz-form-label
+          [nzSm]="6"
+          [nzXs]="24"
+          nzFor="role"
+          nzRequired
+        ></nz-form-label>
+        <nz-form-control
+          [nzSm]="14"
+          [nzXs]="24"
+          nzErrorTip="Please select a Role!"
+        >
+          <nz-select
+            nzMode="multiple"
+            formControlName="role"
+            class="multi_select"
+            nzPlaceHolder="Select Roles"
+          >
+            <nz-option nzLabel="UI" nzValue="UI">UI</nz-option>
+            <nz-option nzLabel="Backend" nzValue="Backend">Backend</nz-option>
+            <nz-option nzLabel="Devops" nzValue="Devops">Devops</nz-option>
+
+            <nz-option nzLabel="UX" nzValue="UX">UX</nz-option>
+            <nz-option nzLabel="AI" nzValue="AI">AI</nz-option>
+            <nz-option nzLabel="Cloud" nzValue="Cloud">Cloud</nz-option>
+          </nz-select>
+        </nz-form-control>
+      </nz-input-group>
+    </nz-form-item>
+
+    <!-- Date-->
+
+    <nz-form-item class="items-align">
+      <nz-form-label [nzSm]="8" [nzXs]="24" nzRequired></nz-form-label>
+      <nz-form-control [nzSm]="16" [nzXs]="24" zErrorTip="Date is required">
+        <nz-date-picker formControlName="datePicker"></nz-date-picker>
+      </nz-form-control>
+    </nz-form-item>
+
+    
+    <!-- Radio-->
+
+    <nz-form-item class="radio-style">
+      <nz-radio-group
+        formControlName="radioGroup"
+        id="radio"
+        nzButtonStyle="solid"
+        nzRequired
+      >
+        <label nz-radio-button nzValue="Hangzhou">Hangzhou</label>
+        <label nz-radio-button nzValue="Shanghai">Shanghai</label>
+        <label nz-radio-button nzValue="Tokyo">Tokyo</label>
+      </nz-radio-group>
+    </nz-form-item>
+
+    <nz-form-item class="items-align">
+      <nz-form-label [nzSpan]="7" nzRequired></nz-form-label>
+      <nz-form-control [nzSpan]="12" nzErrorTip="Please write something here!">
+        <nz-textarea-count [nzMaxCharacterCount]="100">
+          <textarea
+            formControlName="comment"
+            nz-input
+            rows="2"
+            placeholder="comment"
+          ></textarea>
+        </nz-textarea-count>
+      </nz-form-control>
+    </nz-form-item>
+
+    <!-- Checkbox-->
+    <nz-form-item nz-row class="register-area check-box-style">
+      <nz-form-control [nzSpan]="14" [nzOffset]="6">
+        <label class="aggrement "nz-checkbox formControlName="agree">
+          <p > I have read the agreement </p>
+        </label>
+      </nz-form-control>
+    </nz-form-item>
+    <nz-form-item nz-row class="register-area button">
+      <nz-form-control [nzSpan]="14" [nzOffset]="6">
+        <button nz-button nzType="primary">Register</button>
+      </nz-form-control>
+    </nz-form-item>
+  </form>
+</div>
+
+<div class="second-portion">
+<img
+      nz-image
+      width="700px"
+      height="500px"
+      nzSrc="https://stacks.rocks/site/templates/assets-old/images/user/login.svg"
+      alt=""
+    />
+  </div>
+
+</div>
+
+    
+<!-- nzSrc="https://i.pinimg.com/564x/64/04/c8/6404c8242489cc5dfca227199f8ba27d.jpg" -->

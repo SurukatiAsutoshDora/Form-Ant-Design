@@ -1,0 +1,123 @@
+[nz-form] {
+    max-width: 600px;
+  }
+
+  .phone-select {
+    width: 70px;
+  }
+
+  .register-are {
+    margin-bottom: 8px;
+  }
+
+
+
+  .user__form{
+    width: 100vw;
+  
+    margin-left:780px;
+
+  }
+
+  .form_style{
+    border:solid 1px black;
+    border-radius: 5%;
+    position: fixed;
+    height: 580px;
+    width:32%;
+    
+    padding: 3px;
+    margin-right:40px;
+    margin-top:10px;
+    background-color: rgba(88, 51, 51, 0);
+    
+
+  }
+  input{
+     width: 300px; 
+  }
+
+
+  textarea{
+    width:700px;
+  }
+  .parent{
+    position:fixed;
+    width:100%;
+
+  }
+
+
+
+  .zErrorTip{
+    font-size: 1px;
+  }
+
+  
+  .radio-style{
+    margin-left: 40px;
+    
+  }
+
+  .button{
+    margin-left: 80px;
+    margin-top: -30px;
+  }
+
+  .comment-style{
+    margin-right:90px;
+  }
+
+  .date-style{
+    margin-right:150px ;
+  }
+
+  .check-box-style{
+    margin-top: -29px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+  }
+
+  .items-align{
+    display: flex;
+    align-items:center;
+    justify-content: flex-start;
+    padding: 0 10px;
+    width: 100%;
+    
+
+  }
+  nz-form-label{
+    max-width: 30px !important;
+  }
+
+  span{
+    margin-right:300px;
+  }
+
+  .phone-field{
+    width:240px;
+  }
+  .multi_select{
+    width: 313px;
+    margin-left: 10px;
+    margin-bottom: 15px;
+
+  }
+
+  .aggrement{
+    margin-left: -70px;
+    padding-top: 30px;
+  }
+
+img{
+  margin-top:25px;
+  margin-left: -70px;
+}
+
+.second-portion{
+width:60%;
+height: 100vh;
+background-color: rgb(47,85,212);
+}
